@@ -1,6 +1,6 @@
     //Old version
 
-// var mic = document.getElementById('mic');
+// var mic = document.getElementById('mic');      //getElementByClassName  class so yin
 // mic.style.color = 'blue';
 // mic.style.fontSize = 70 +'px';
 
@@ -306,3 +306,16 @@
 // document.querySelector('.btn').addEventListener('click', () =>          //page refresh
 //     window.location.reload()
 // );
+
+// let mega = document.scripts
+// let mari = Array.from(mega);                                        //script to array change
+// mari.forEach((kuro) => {
+//     console.log(kuro.src)
+// });
+// console.log(mega)
+
+let head = document.querySelectorAll('ul li');
+for(let i=0;i<head.length;i++){
+   let list = head[i].querySelector('a');
+   list.style.color= 'Purple';
+}
