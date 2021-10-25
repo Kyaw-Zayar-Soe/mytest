@@ -207,7 +207,7 @@
 // let ss = ()=> console.log('Hey Now!');
 // ss()
 
-           //Immediately Invokable Function Expression(IIFEs)
+//            Immediately Invokable Function Expression(IIFEs)
 // (function(){
 //     console.log('Hey Now!');
 // })();
@@ -284,3 +284,25 @@
 // str.replace('english', 'korea')               //replace the word
 // str.includes('speak')                         //pr ma pr check true false pya
 // console.log(sri)
+
+
+// let name = prompt('What is your name?');
+// document.querySelector('#mic').innerHTML = name;     //fill the blank 
+
+// let con = confirm("Are you over 18");                    //hope ma hope true false
+// let ans = con ? 'Yes over 18' : 'No, under 18';
+// document.querySelector('#mic').innerHTML = ans;
+
+
+// let head = document.querySelector('#mic');
+// head.style.background = "black"
+// head.style.color = 'white'                                             //location change next page
+// head.style.height = 200 + 'px'
+
+// document.querySelector('.btn').addEventListener('click', () => 
+//     window.location.href = 'test2.html'
+// );
+
+// document.querySelector('.btn').addEventListener('click', () =>          //page refresh
+//     window.location.reload()
+// );
