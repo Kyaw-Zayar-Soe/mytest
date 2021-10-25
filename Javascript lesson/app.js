@@ -274,7 +274,13 @@
 //const VAL = 33              //global /no reassign/redeclearable
 // console.log(window.noi)
 
-let sr = 'I can\'t speak english Well';    //escaping
-let sri = sr.toUpperCase()
-sri = sr.toLowerCase()
-console.log(sri)
+// let sr = 'I can\'t speak english Well';    //escaping
+// str.toUpperCase()
+// str.toLowerCase()
+// str.lastIndexOf(searchValue)
+// str.charAt(index)                             //character at
+// str.substring(indexStart, indexEnd)           //(0,3)
+// str.slice(beginIndex, endIndex)               //(-4,4)pyat htote p pya
+// str.replace('english', 'korea')               //replace the word
+// str.includes('speak')                         //pr ma pr check true false pya
+// console.log(sri)
