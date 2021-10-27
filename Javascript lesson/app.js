@@ -314,8 +314,29 @@
 // });
 // console.log(mega)
 
-let head = document.querySelectorAll('ul li');
-for(let i=0;i<head.length;i++){
-   let list = head[i].querySelector('a');
-   list.style.color= 'Purple';
-}
+// let head = document.querySelectorAll('ul li');                         //ALL ko tone li a kone ya poh //nodelist a nay nat pya
+// for(let i=0;i<head.length;i++){
+//    let list = head[i].querySelector('a');                              //li htae ka a ko select
+//    list.style.color= 'orange';
+//    console.log(list)
+
+// }
+
+//firstElementChild/firstChild,nextSibling,previousSibling,childElementCount/childNodes.length, children
+//1 Element
+//2 Attribute
+// 3 Text Node
+// 8 Comment
+// 9 Document Itself
+// 10 Doctype
+let head = document.querySelector('.lst');                            //ul ko select
+  for(let i=0;i<head.childNodes.length;i++){                                            
+    let boo = head.childNodes[i]                                      //ul htae ka li nat text nat ko twae ml
+    if(boo.nodeType == 1){                                            //1 so mha
+        let some = boo.childNodes[0].textContent                      //li htae ka a ko select a htae ka text ko select
+       
+   }
+  } 
+
+    
+  
