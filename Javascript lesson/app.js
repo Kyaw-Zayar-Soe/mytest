@@ -323,20 +323,47 @@
 // }
 
 //firstElementChild/firstChild,nextSibling,previousSibling,childElementCount/childNodes.length, children
-//1 Element
-//2 Attribute
-// 3 Text Node
-// 8 Comment
-// 9 Document Itself
-// 10 Doctype
-let head = document.querySelector('.lst');                            //ul ko select
-  for(let i=0;i<head.childNodes.length;i++){                                            
-    let boo = head.childNodes[i]                                      //ul htae ka li nat text nat ko twae ml
-    if(boo.nodeType == 1){                                            //1 so mha
-        let some = boo.childNodes[0].textContent                      //li htae ka a ko select a htae ka text ko select
+        //1 Element
+        //2 Attribute
+        // 3 Text Node
+        // 8 Comment
+        // 9 Document Itself
+        // 10 Doctype
+// let head = document.querySelector('.lst');                            //ul ko select
+//   for(let i=0;i<head.childNodes.length;i++){                                            
+//     let boo = head.childNodes[i]                                      //ul htae ka li nat text nat ko twae ml
+//     if(boo.nodeType == 1){                                            //1 so mha
+//         let some = boo.childNodes[0].textContent                      //li htae ka a ko select a htae ka text ko select
        
-   }
-  } 
+//    }
+//   } 
+
+
+                         //Create Tag/Element with javascript
+// let main = document.querySelector('.lst');
+// let text = document.createTextNode('Six');
+// let aTag = document.createElement('a');
+// aTag.setAttribute('href','#');
+// aTag.appendChild(text);
+// let li = document.createElement('li');
+// li.appendChild(aTag);
+// main.appendChild(li);
+// console.log(main)
+
+                           //create tag and set attribute
+// let oldelement = document.querySelector('#mic');
+// let newelement = document.createElement('h1');
+// let text = document.createTextNode('Happy Thadingyut Festival');
+// newelement.appendChild(text);
+// newelement.className = 'voice bi';
+// newelement.id = 'viper';
+// let body = oldelement.parentNode;
+// body.replaceChild(newelement,oldelement);
+// console.log(body)
 
     
-  
+  let main = document.querySelector('.lst');
+  let element = document.querySelector('ul.lst li:first-child');
+  let tag = element.childNodes[0].getAttribute('alt') 
+
+  console.log(tag)
