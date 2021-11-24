@@ -362,8 +362,124 @@
 // console.log(body)
 
     
-  let main = document.querySelector('.lst');
-  let element = document.querySelector('ul.lst li:first-child');
-  let tag = element.childNodes[0].getAttribute('alt') 
+//   let main = document.querySelector('.lst');
+//   let element = document.querySelector('ul.lst li:first-child');
+//   let tag = element.childNodes[0].getAttribute('alt') 
 
-  console.log(tag)
+//   console.log(tag)
+
+// let tap = document.querySelector('.btn');
+
+// tap.onclick = (e)=>{                              
+//     console.log(e);
+// }
+
+//AddEventListener
+// tap.addEventListener('dblclick',(e)=>{    
+//     console.log(e.type);
+// })
+
+//MoreEvent  //mousedown/up //mouseenter/leave or out  //mouseover/move 
+// let one = document.querySelector('.btn');
+// let two = document.querySelector('#btn');
+// one.onmouseover = (e)=>{
+//     console.log(e.target.innerText);
+// }
+// two.addEventListener('mousemove',(e)=>{
+//     console.log(e.target.innerText  )
+// })
+
+//keydown , keyup , keypress , focus , blur , cut , paste , change
+// let form = document.querySelector('form');
+// let input = document.querySelector('#sub');
+
+// input.addEventListener('change',(e)=>{
+//     alert(123)
+// })
+// form.addEventListener('submit',(e)=>{
+//     e.preventDefault();
+//     console.log(input.value);
+// })
+
+
+                                //LocalStorage
+
+// let addData = (obj)=>{
+//     let data = JSON.stringify(obj);
+//     localStorage.setItem('local',data);
+// }
+// let getData =()=>{
+//     let str = localStorage.getItem('local');
+//     let obj = JSON.parse(str);
+//     return obj;
+// }
+// let removeData = ()=>{
+//     localStorage.removeItem('local');
+// }
+
+// let form = document.querySelector('.contain');
+// let Inputname = document.querySelector('#name');
+// let Inputage = document.querySelector('#age');
+// let button = document.querySelector('#btndelete');
+// form.addEventListener('submit',(e)=>{
+//    e.preventDefault();
+//    let name = Inputname.value;
+//    let age = Inputage.value;
+//    let user = {
+//        name: name,
+//        age: age,
+//    };
+//    addData(user);
+
+// })
+// button.addEventListener('click',removeData);
+
+                                        //Session Storage
+let saveData = (usrobj)=>{
+    let usrary = getData();
+    if(usrary == null){
+        usrary = [];
+        usrary.push(usrobj);
+        addData(usrary);
+    }else{
+        let ind = usrary.findIndex(usr =>usr.name == usrobj.name);
+        console.log(ind)
+        if(ind = -1){
+            alert('User already exists!');
+            
+        }else{
+            usrary.push(usrobj);
+            addData(usrary);
+        }
+    }
+}
+
+let addData = (aryobj)=>{
+    let data = JSON.stringify(aryobj);
+    sessionStorage.setItem('session',data);
+}
+let getData = ()=>{
+    let str = sessionStorage.getItem('session');
+    let Aryobj = JSON.parse(str);
+    return Aryobj;
+}
+let removeData = ()=>{
+    sessionStorage.removeItem('session');
+}
+
+let form = document.querySelector('.contain');
+let Inputname = document.querySelector('#name');
+let Inputage = document.querySelector('#age');
+let button = document.querySelector('#btndelete');
+form.addEventListener('submit',(e)=>{
+   e.preventDefault();
+   let name = Inputname.value;
+   let age = Inputage.value;
+   let user = {
+       name: name,
+       age: age,
+   };
+   saveData(user);
+
+})
+button.addEventListener('click',removeData);                              

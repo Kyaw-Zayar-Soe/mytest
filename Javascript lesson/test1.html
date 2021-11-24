@@ -5,19 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/1200px-Logo-ubuntu_cof-orange-hex.svg.png" type="Image/png" >
-    <style>
-      img:hover{
-            width: 120px;
-            transition: 1.5s;
-        }
-    </style>
+    <link rel="stylesheet" href="app.css">
     <title>Ubuntu</title>
 </head>
 <body>
     <h1 id="mic">Hello World!</h1>
     <p class="para"></p>
-    <form action="test2.html" method="get">
-        <input type="text" name="txt" placeholder="blahblahblah" style="display: block;"    >
+    <form action="test2.html" method="get" autocomplete="off">
+        <input type="text" name="txt" placeholder="blahblahblah" id="sub">
+        <input type="submit" value="Submit">
+        
         <a href="#" style="display: block;">One</a>
         <img src="./img/1200px-Logo-ubuntu_cof-orange-hex.svg.png" alt="logo" width=100 style="display: block;" >
         <a href="#">Two</a>
@@ -28,8 +25,24 @@
             <li><a href="">Four</a></li>
             <li><a href="">Five</a></li>
         </ul>
-    </form>
+    </form> 
     <button class='btn'>Change me</button>
+    <button id='btn'>Call me</button>
+    <div class="container">
+        <div class="circleone"></div>
+        <div class="pointer-container">
+            <span class="pointer"></span>
+        </div>
+        <div class="circletwo"></div>
+    </div>
+    <br>    
+    <br>    
+    <form action="#" class="contain">
+        <input type="text" name="" id="name"><br><br>
+        <input type="number" name="" id="age"><br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Delete" id="btndelete">
+    </form>
     <script src="./app.js"></script>
     
 </body>
