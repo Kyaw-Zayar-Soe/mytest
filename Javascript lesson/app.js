@@ -271,7 +271,7 @@
 
 // let no = 29                //block /reassign/no redeclearable 
 // var noi = 33              //global /reassign/redeclearable
-//const VAL = 33              //global /no reassign/redeclearable
+//const VAL = 33              //global /no reassign/no redeclearable
 // console.log(window.noi)
 
 // let sr = 'I can\'t speak english Well';    //escaping
@@ -435,51 +435,141 @@
 // button.addEventListener('click',removeData);
 
                                         //Session Storage
-let saveData = (usrobj)=>{
-    let usrary = getData();
-    if(usrary == null){
-        usrary = [];
-        usrary.push(usrobj);
-        addData(usrary);
-    }else{
-        let ind = usrary.findIndex(usr =>usr.name == usrobj.name);
-        console.log(ind)
-        if(ind = -1){
-            alert('User already exists!');
-            
-        }else{
-            usrary.push(usrobj);
-            addData(usrary);
-        }
-    }
-}
+// let saveData = (usrobj)=>{
+//     let usrary = getData();
+//     if(usrary == null){
+//         usrary = [];
+//         usrary.push(usrobj);
+//         addData(usrary);
+//     }else{
+//         let ind = usrary.findIndex(usr =>usr.name == usrobj.name);
+//         console.log(ind)
+//         if(ind == -1){
+//             usrary.push(usrobj);
+//             addData(usrary);
+//         }else{            
+//             alert('User already exists!');
+//         }
+//     }
+// }
 
-let addData = (aryobj)=>{
-    let data = JSON.stringify(aryobj);
-    sessionStorage.setItem('session',data);
-}
-let getData = ()=>{
-    let str = sessionStorage.getItem('session');
-    let Aryobj = JSON.parse(str);
-    return Aryobj;
-}
-let removeData = ()=>{
-    sessionStorage.removeItem('session');
-}
+// let addData = (aryobj)=>{
+//     let data = JSON.stringify(aryobj);
+//     sessionStorage.setItem('session',data);
+// }
+// let getData = ()=>{
+//     let str = sessionStorage.getItem('session');
+//     let Aryobj = JSON.parse(str);
+//     return Aryobj;
+// }
+// let removeData = ()=>{
+//     sessionStorage.removeItem('session');
+// }
 
-let form = document.querySelector('.contain');
-let Inputname = document.querySelector('#name');
-let Inputage = document.querySelector('#age');
-let button = document.querySelector('#btndelete');
-form.addEventListener('submit',(e)=>{
-   e.preventDefault();
-   let name = Inputname.value;
-   let age = Inputage.value;
-   let user = {
-       name: name,
-       age: age,
-   };
-   saveData(user);
+// let form = document.querySelector('.contain');
+// let Inputname = document.querySelector('#name');
+// let Inputage = document.querySelector('#age');
+// let button = document.querySelector('#btndelete');
+// form.addEventListener('submit',(e)=>{
+//    e.preventDefault();
+//    let name = Inputname.value;
+//    let age = Inputage.value;
+//    let user = {
+//        name: name,
+//        age: age,
+//    };
+//    saveData(user);
 
-})
-button.addEventListener('click',removeData);                              
+// })
+// button.addEventListener('click',removeData);          
+
+                                    //OOP Javascript & constructor function(new string(),new number(),nwe function(),new boolean(),new array())
+
+// function Person(name,age){                        //object prototype
+//     this.name = name;
+//     this.age = new Date(age);                                   //this ka p1 ko pyw tr      
+//     this.getage = ()=>{
+//         let diff = Date.now() - this.age.getTime();          //date.now ka 1970 ka sa a ku hti //thisagetime ka 1970 ka sa 2000 hti
+//         let getage = new Date(diff);                           // 25 1 1991     51-30
+//         return getage.getFullYear();
+        
+//     }
+// }
+// let p1 = new Person('Mg Mg',23);
+// let p2 = new Person('Aung Aung','10-02-2000');
+// console.log(p2.getage());
+
+
+                        //currentobject.prototype / oject prototype
+// function Person(name,age){
+//     this.name = name;
+//     this.age = age;
+// }               
+// Person.prototype.getUserData = function(){                   //Defaultobjpro
+//     return this.name + ':' + this.age;
+// }     
+// let person = new Person('Mg Mg',21);
+// console.log(person.getUserData());
+
+                        //currentobjectprototype inherientance
+
+// function Cars(name,speed){
+//     this.name = name;
+//     this.speed = speed;
+// }
+// Cars.prototype.getData = function(){
+//     return `Name : ${this.name} & Speed : ${this.speed}.`;
+// }
+// Cars.prototype.getSpeed = function(){
+//     return `This is Toyota speed ${this.speed}`;
+// }
+
+// function Toyota(name,speed,model){
+//     Cars.call(this,name,speed);
+//     this.model = model;
+// }
+// Toyota.prototype = Object.create(Cars.prototype);              //Cars constructor tone poh atwat yay thi
+// Toyota.prototype.getSpeed = function(){                        //replace lope thi
+//     return `This is overspeed in toya ${this.speed}.`;
+// }
+// let toya = new Toyota('toyota',180,1990);
+// console.log(toya.getData())
+// console.log(toya.getSpeed())
+// console.log(toya.model)
+                                          //Another Prototype form
+// const Carpro = {
+//     getName : function(){
+//         return this.name;
+//     },
+//     getSpeed : function(){
+//         return this.speed;
+//     }
+// }
+// let Car = Object.create(Carpro);
+//   Car.name = "Toyata";
+//   Car.speed = 340;
+             //Or
+// let Var = Object.create(Carpro,{
+//     name : { value : "Toyota"},
+//     speed : { value : 320}
+// })
+//   console.log(Var)
+                         
+                             //Ecmas6 Class
+// class Person{
+//     static name = "Aung Aung";
+//     static age = 21;
+//     constructor(name,age){
+//         this.name = name;                    //Object shi mha a lope lope 
+//         this.age = age;
+//     }
+//     getName(){
+//         return `Name is ${this.name}.`
+//     }
+//     static getNameAge(){                                      //object ma lo static mhr data shi yin ya b
+//         return `Name is ${this.name} & Age is ${this.age}.`
+//     }
+// }                
+// // let p = new Person('Mg Mg',23);
+// //console.log(p.getName())
+// console.log(Person.getNameAge())
