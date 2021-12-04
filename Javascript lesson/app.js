@@ -573,3 +573,408 @@
 // // let p = new Person('Mg Mg',23);
 // //console.log(p.getName())
 // console.log(Person.getNameAge())
+
+                              //Ecmas6 inheritance
+// class Car{                          //super class
+//     constructor(name,speed){
+//         this.name = name;
+//         this.speed = speed;
+//     }
+//     getData(){
+//         console.log(`Name is ${this.name} & Speed is ${this.speed}`);
+//     }
+// }                              
+// class Toyota extends Car{               //sub class
+//     constructor(name,speed,price){
+//         super(name,speed);
+//         this.price = price;
+//     }
+//     getData(){
+//         console.log(`This is from sub class ${this.name} & ${this.speed} & ${this.price}`)
+//     }
+// }
+// let toya = new Toyota('Toyota',189,2300);
+// toya.getData();
+// console.log(toya.price)
+                       
+                              //asynchronous javascript /onreadystatchange
+// let url = "https://jsonplaceholder.typicode.com/posts"
+// let xhr = new XMLHttpRequest();
+// let pron = document.querySelector('#pro');
+//     xhr.open('GET',url);
+//     xhr.onreadystatechange = function(){
+//         if(this.status == 200 && this.readyState == 4){
+//             let rt = this.responseText;
+//             let Json = JSON.parse(rt);
+//             let str = '';
+//             Json.forEach((post) => {
+//                 str +=`
+//                          <div class="col-md-3">
+//                          <div class="card" style="width: 18rem;">
+//                              <div class="card-body">
+//                                <h5 class="card-title">${post.title}</h5>
+//                                ${post.body}
+//                                <a href="#" class="btn btn-primary">Go</a>
+//                              </div>
+//                            </div>
+//                          </div>
+//                       `
+//             });
+//             pron.innerHTML = str;
+//         }
+//     }
+//     xhr.onprogress = function(){
+//         console.log('Procressing ...');
+//     }
+//     xhr.onerror = function(err){
+//         console.log(err);
+//     }
+//     xhr.send();
+ 
+                        //Call Back function        //OnLoad XMLHttpRequest   Another type
+// let url = "https://jsonplaceholder.typicode.com/posts";
+// let pron = document.querySelector('#pro');
+ 
+// function make(res){                                    //call back function
+//             let json = JSON.parse(res);
+//             let str = '';
+//             json.forEach(post =>{
+//                 str +=`
+//                          <div class="col-md-3">
+//                          <div class="card" style="width: 18rem;">
+//                              <div class="card-body">
+//                                <h5 class="card-title">${post.title}</h5>
+//                                ${post.body}
+//                                <a href="#" class="btn btn-primary">Go</a>
+//                              </div>
+//                            </div>
+//                          </div>
+//                       `
+//             });
+//             pron.innerHTML = str;
+// }
+// function loadData(cb){
+//     let xhr = new XMLHttpRequest();
+    
+//     xhr.open('GET',url);
+//     xhr.onload = function(){
+//         if(this.status == 200){
+//             cb(this.responseText);
+//         }
+//     }    
+//     xhr.send(); 
+
+// }        
+// loadData(make);    //call back function
+
+                         //Promise
+// let url = "https://jsonplaceholder.typicode.com/posts";
+// function loadData(){
+//     let xhr = new XMLHttpRequest();
+//     return new Promise((resolve,reject)=>{
+//             xhr.onload = function(){
+//                 if(this.status == 200){
+//                     resolve(this.responseText);
+//                 }else{
+//                     reject("Fail");
+//                 }
+//             }
+//             xhr.open('GET',url);
+//             xhr.send();
+//     })
+// }
+// loadData()                                //semicoma ma htae yan
+//    .then((res)=>console.log(res))     //for resolve
+//    .catch((err)=>console.log(err));    //for reject
+
+                 //Fetch api
+
+// let url = "https://jsonplaceholder.typicode.com/posts";
+// fetch(url)
+//    .then((res)=>{return res.text()})
+//    .then((result)=>console.log(result))
+//    .catch((err)=>console.log(err));
+ 
+                //Async await
+// let url = "https://jsonplaceholder.typicode.com/posts";
+// async function loadData(){
+//     const data = new Promise((resolve,reject)=>{
+//         let xhr = new XMLHttpRequest();
+//         xhr.onload = function(){
+//             if(this.status == 200){
+//                 resolve(this.responseText);
+//             }else{
+//                 reject("Fail");
+//             }
+//         }
+//         xhr.open('GET',url);
+//         xhr.send();
+//     })
+//     let con = await data;
+//     return con;
+// }
+// loadData()
+//   .then((res)=>console.log(res))
+//   .catch((err)=>console.log(err));
+
+                    //Fetch &Promise
+// let url = "https://jsonplaceholder.typicode.com/posts";
+// function loadData(){
+//     return new Promise((resolve,reject)=>{
+//         fetch(url)
+//          .then((res)=>resolve(res.text()))
+//          .catch((err)=>reject(err));
+//     })
+// }   
+// loadData()
+//   .then((res)=>console.log(res))
+//   .catch((err)=>console.log(err));                
+
+// let fname = '';
+// try {
+//     fname()
+//     fname = 'Mg Mg'                //error handling
+// } catch (error) {
+//     fname = 'Aung Aung'
+// }finally{
+//     console.log(fname);
+// }
+
+                               //Regular Expression(exec,test,match,search)
+// let reg = /secret/i;                           //i mean capital or small letter whatever
+// let email ='hello i am mega zion secret';
+// // let result = reg.exec(email);              //show index number and text
+// // let result = reg.test(email);                 //show boolean
+// // let result = email.match(reg)                 //show  index number and text
+// // let result = email.search(reg)                //show index num
+// console.log(result)
+
+// function check(reg,str){
+//     if(reg.test(str)){
+//         console.log(`${str} is match with ${reg.source}`)
+//     }else{
+//         console.warn(`${str} is not match with ${reg.source}`)
+//     }
+// }
+// let rg =/hello/;
+// let rg =/^hello/;                  //shae sone mhr hello par ya mal
+//let rg =/hello$/;                     //nout sone mhr hello par ya mal
+// let rg =/^hello$/;                  //sar tan ta tan lone mhr hello ta khu ml par ya ml 
+// let rg =/h.llo/;                        //. nay yar mhr br sa lone ma so ta lone kyite tr htae ma htae loz ma ya
+//let rg = /h*llo/;                      //* zero or more char
+//let rg = /he?a?llo/;                    //e or a 2khu lone ya ma hte lal ya
+// let rg = /he?a?llo\?/;                   //check ?
+//let rg = /h[e,a]llo/;                    //Bracket[]  => character set   fill ma lope loz ma ya
+//let rg = /[^h]ello/;                    //h nat ma sa ya boo /^[h]ello => h nat sa ya mal
+//let rg = /[hb]ello/i;                     //h or b br phit phit ya / ma hte loz  ma ya
+//let rg = /[a-zA-Z0-9]ello/;                 //a to z br phit phit ya 0 to 9 kaw
+//let rg = /[hb]{2}llo/;                       //h or b 2 lone phit ya mal
+//let rg = /([hb]e){2}llo/;                    //he or be 2 khr pr ya mal
+//let rg = /\w/;                                // word char bal word ma so ya tal(a-zA-Z0-9_)
+//let rg = /\W/;                              //non word twy pl ya @#$% space 
+//let rg = /\d/;                             //digit pr mha ya ml //D so non digit
+//let rg = /\s/;                             //space par ya ml // S so space only ma ya boo
+//let rg = /hell\b/;                           // hell so tat word shi ma shi sit 
+// let rg = /x(?=y)/;                           //x nout mhr y lite ya ml / x(?!y) x nout mhr y ma lite ya
+// let st = 'xy'; 
+// check(rg,st);
+      
+                                //Form validation
+// let Name = document.querySelector('#name');                                
+// let email = document.querySelector('#email');                                
+// let password = document.querySelector('#pwd');  
+// let button = document.querySelector('#bttn');  
+
+// let namev = false;
+// let emailv = false;
+// let passwordv = false;
+// Name.addEventListener('keyup', ()=>{
+//     let str = Name.value;
+//     let reg = /^\w+$/;
+//     if(!reg.test(str)){
+//         Name.classList.add('is-invalid')
+//         namev = false;
+//     }else{
+//         Name.classList.remove('is-invalid')
+//         namev = true;
+//     } 
+//     setenable();  
+// });
+// email.addEventListener('keyup',()=>{
+//     let str = email.value;
+//     let reg = /^([\w\.\-]+)@([a-z]+)\.([a-z]{2,5})$/;
+//     if(!reg.test(str)){
+//         email.classList.add('is-invalid');
+//         emailv = false;
+//     }else{
+//         email.classList.remove('is-invalid');
+//         emailv = true;
+//     }
+//     setenable();
+// });
+// password.addEventListener('keyup',()=>{
+//     let str = password.value;
+//     let reg = /^[\w\W]{6,20}$/;
+//     if(!reg.test(str)){
+//         password.classList.add('is-invalid');
+//         passwordv = false;
+//     }else{
+//         password.classList.remove('is-invalid');    
+//         passwordv = true;
+//     }
+//     setenable();
+// });
+
+// function setenable(){
+//     if(namev && emailv && passwordv){
+//         button.classList.remove('disabled');
+//     }else{
+//         button.classList.add('disabled');
+//     }
+// }
+
+                                       //ECMA script 6 => Iterator <=> Generator
+// function personiterator(obj){
+//     let personIndex = 0;
+//     return{
+//         next : ()=>{
+//             return personIndex < obj.length ?{value : obj[personIndex++],done : false}:{done : true};
+//         }
+//     }
+// }                                      
+       
+// let persons = ['Mg Mg','Aung Aung','Su Su'];
+// let person = personiterator(persons);
+// let result = person.next();
+// result = person.next();
+// result = person.next();
+// if(!result.done){
+//     console.log(result.value)
+// }
+
+// function* numgen(){
+//     let i = 0;
+//     while(true){
+//         yield i++;
+//     }
+// }
+// let num = numgen();
+// console.log(num.next())
+// console.log(num.next())
+// console.log(num.next())
+// console.log(num.next())
+  
+                     //itemgenerator sample
+// let users = [
+//     {
+//         name : 'Ei',
+//         age : 21,
+//         member_type : 'Gold member',
+//         education : 'Graduate',
+//         Married : false,
+//         image : 'https://randomuser.me/api/portraits/women/90.jpg'
+//     },
+//     {
+//         name : 'Phyo Phyo',
+//         age : 25,
+//         member_type : 'Diamond member',
+//         education : 'Graduate',
+//         Married : true,
+//         image : 'https://randomuser.me/api/portraits/women/91.jpg'
+//     },
+//     {
+//         name : 'Yu Na',
+//         age : 22,
+//         member_type : 'Silver member',
+//         education : 'Graduate',
+//         Married : false,
+//         image : 'https://randomuser.me/api/portraits/women/92.jpg'
+//     },
+//     {
+//         name : 'Thandar',
+//         age : 24,
+//         member_type : 'Bronze member',
+//         education : 'Graduate',
+//         Married : true,
+//         image : 'https://randomuser.me/api/portraits/women/93.jpg'
+//     }
+// ]                                                      
+// function useriterator(aryobj){
+//     let userindex = 0;
+//     return{
+//         next : ()=>{
+//             return userindex < aryobj.length? {value : aryobj[userindex++] , done : false}:{done : true}
+//         }
+//     }
+// }
+// let person = useriterator(users)
+// let button = document.querySelector('#btn');
+// let imageDisplay = document.querySelector('.imageDisplay');
+// let infoDisplay = document.querySelector('.infoDisplay');
+// button.addEventListener('click',auro)
+// function auro(){
+//     let personk = person.next();
+//     if(!personk.done){
+//         infoDisplay.innerHTML = `
+//         <ul class="list-group">
+//             <li class="list-group-item">Name : ${personk.value.name}</li>
+//             <li class="list-group-item">Age : ${personk.value.age}</li>
+//             <li class="list-group-item">Member Type : ${personk.value.member_type}</li>
+//             <li class="list-group-item">Education : ${personk.value.education}</li>
+//             <li class="list-group-item">Married : ${personk.value.Married}</li>
+//         </ul>
+//         `;
+//         imageDisplay.innerHTML = `
+//         <img src="${personk.value.image}" class="d-block mx-auto" alt="">
+//         `;
+//     }else{
+//         window.location.reload();
+//     }
+// }
+// auro();
+
+// let person = {
+//     name : 'kyaw kyaw',
+//     age : 12,
+//     Township : 'Yangon'
+// }
+                                          //Ecma script 5
+// let name = person.name;
+// let age = person.age;
+// let township = person.Township;
+                                          //Ecma script 6
+// let {name,age,Township} = person;
+// console.log(name);             
+                        
+                           //Using Map
+// let map = new Map();
+// map.set('k1', 'Aung Aung');
+// map.set('k2', 'Mg Mg');
+// map.set('k3','Soe Soe');
+// console.log(map.get('k2'))        //map.size
+
+// for (const [k,v] of map) {
+//     console.log(`key ${k} and value ${v}`)            //for of loop
+// }
+
+// for(let k of map.keys()){
+//     console.log(`key ${k}`)
+// }
+// for (const v of map.values()) {
+//     console.log(`value is ${v}`)
+// }
+// let ary = Array.from(map.values())                    //map to array change
+// console.log(ary)
+
+                             //Using Set
+// let tap = new Set(['Mg Mg',20,()=>console.log('hell')]);
+// tap.add('Mg Mg');
+// tap.add('Mg Aung');
+// tap.add(23);
+// tap.add(()=>{console.log('bar bar')})                             
+// console.log(tap.has('Mg Mg'))               //has shi ma shi may tr
+// tap.delete("Mg Aung")                        //delete lope
+// console.log(tap)
+// for(i of tap){
+//     console.log(i)
+// }
