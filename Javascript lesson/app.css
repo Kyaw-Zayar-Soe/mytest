@@ -65,3 +65,21 @@ button:hover{
         transform: rotate(360deg);
     }
 }
+
+.box{
+    border: 5px solid darkblue;
+    width: 800px;
+    height: 30px;
+    background-color: skyblue;
+    position: relative;
+    padding: 10px;
+}
+.ball{
+    border-radius: 30px;
+    background-color: red;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
+}

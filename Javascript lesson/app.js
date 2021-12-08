@@ -92,8 +92,8 @@
 // }while(i<=10)
 
 // let mo = "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-// let tom = mo.split(" ");                                             //foreach loop
-// tom.forEach((co,i) =>{
+// let tom = mo.split(" ");                    //"Lorem","ipsum" like this        string to ary phit twr
+// tom.forEach((co,i) =>{                                      //foreach loop
 //     console.log(co + " " + i);
 // })
 
@@ -125,7 +125,13 @@
 //     }
 // ]
 // user.map((ki) =>{
-//     console.log(ki.age);                                   //mapping array obj
+//     console.log(ki.age);                                   //mapping array obj  //arr hte ka lo chin tr ko ta khu chin u pyin loz ya
+// })
+// user.filter((ki)=>{
+//     console.log(ki)
+// })
+// user.reduce((a,ki)=>{
+//     console.log(a+ki)
 // })
 
 // let ind = user.findIndex(ki => ki.age == 25);                 //find index
@@ -252,7 +258,9 @@
 // dd.setMonth(9);
 // console.log(dd);           
 
-// let num = [23,2,1,3,5,8,7,44];
+//  let num = [23,2,1,3,5,8,7,44];                ary to string
+//  let nu = num.join(',')
+//  console.log(nu)
 
 // num.sort((x,y)=>x-y);                //ascending descending
 // console.log(num)
@@ -278,11 +286,12 @@
 // str.toUpperCase()
 // str.toLowerCase()
 // str.lastIndexOf(searchValue)
-// str.charAt(index)                             //character at
+// str.charAt(index)                             //character at fill index
 // str.substring(indexStart, indexEnd)           //(0,3)
 // str.slice(beginIndex, endIndex)               //(-4,4)pyat htote p pya
 // str.replace('english', 'korea')               //replace the word
 // str.includes('speak')                         //pr ma pr check true false pya
+// str.trim()                                    //sr kyt shae nat nout ka space shi yin remove
 // console.log(sri)
 
 
@@ -586,7 +595,7 @@
 // }                              
 // class Toyota extends Car{               //sub class
 //     constructor(name,speed,price){
-//         super(name,speed);
+//         super(name,speed);                //car constructor ko hlan call
 //         this.price = price;
 //     }
 //     getData(){
@@ -978,3 +987,32 @@
 // for(i of tap){
 //     console.log(i)
 // }
+
+
+let ball = document.querySelector('.ball');
+// let left = 0;
+// setInterval(() => {
+//     left += 1
+//     if(left > 790) left = 0
+//     ball.style.left = `${left}px`
+// }, 10);
+          //or
+let left = 0;
+let direction = 'right';
+function move(){
+    if(direction === 'right'){
+        left += 1
+        if(left > 790) direction = 'left'
+        }else{ left -=1
+        if(left < 1) direction = 'right'
+        }
+        ball.style.left = `${left}px`
+}
+let interval = setInterval(move, 10); 
+
+function start(){
+    return interval = setInterval(move, 10)
+}        
+function stop(){
+    clearInterval(interval)
+}
